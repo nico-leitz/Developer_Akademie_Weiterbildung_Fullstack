@@ -5,8 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript-Basics</title>
   </head>
-  <body>
+  <style>
+    .green_bg {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+    }
+    .green_bg {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+    }
+
+    .d_none {
+      display: none;
+    }
+
+    .blueBackground {
+      background-color: rgb(32, 25, 135);
+    }
+  </style>
+
+  <body onload="blueBackground()">
     <h2 id="website_title">Der Titel der Webseite</h2>
+
+    <div id="test_div"></div>
+
+    <div id="aufgabe_div"></div>
+
+    <input id="test_input" type="number" name="number" value="5" />
+
+    <p id="our_p_tag">Ich bin das p-Tag</p>
+    <button onclick="toggleDNone()">bitte ausführen</button>
+
+    <br />
+    <br />
 
     <script src="dom.js"></script>
   </body>
