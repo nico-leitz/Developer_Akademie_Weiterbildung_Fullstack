@@ -1,0 +1,322 @@
+* {
+  /* Diese drei Befehle sollten in fast jedem Projekt am Anfang stehen */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Auch immer gerne verwenden */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+}
+
+h1 {
+  font-size: 15rem;
+  color: white;
+
+  margin-block-start: 0;
+  margin-block-end: 0;
+  /* Browser-Default:
+   Automatischer vertikaler Abstand (wegen 'start' und 'end' denke ich),
+   der vom Browser bei bestimmten Elementen (z.B. h1) gesetzt wird. */
+}
+
+h2 {
+  font-size: 11rem;
+  color: #b48a4e;
+}
+
+h3 {
+  font-size: 7rem;
+  color: white;
+}
+
+.atf {
+  background-image: url(./img/header.png);
+  height: 100vh;
+
+  background-size: cover;
+  /* Skaliert das Bild so, dass der Container vollständig bedeckt ist.
+   Teile des Bildes können dabei gleichmäßig an den Rändern abgeschnitten werden. */
+
+  background-position: center;
+  /* Zentriert das Hintergrundbild im Container */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8rem;
+  /* Der Header ist absolut positioniert, damit er nicht am normalen
+     Dokumentfluss teilnimmt und stattdessen über dem Hero-/Background-
+     Bereich liegt. Dieses Pattern wird häufig bei Landingpages genutzt,
+     um Navigation und Logo direkt auf dem Hero-Bild zu platzieren,
+     ohne zusätzlichen Platz oberhalb zu reservieren. */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+header img {
+  width: 15rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  margin-left: 16px;
+  font-size: 3rem;
+}
+
+.navLink:hover {
+  color: #b48a4e;
+}
+
+.navImage {
+  height: 4rem;
+  /* Höhe ist fix, Breite wird automatisch berechnet,
+   damit das Bild proportional skaliert wird */
+  width: auto;
+  margin-left: 6rem;
+}
+
+.navImage:hover {
+  filter: drop-shadow(0px 0px 4px #ffffff);
+  /* Bei Bildern/Icons funktioniert "color" nicht als 'hover'-Effekt
+  in solchen fällen nutzen wir die Filter Funktion/Property -> Finde ich seehr schick! :D*/
+  cursor: pointer;
+  /* Hierbei verändert sich beim 'hovern' der Mauszeiger (verschiedene Props möglich!) */
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 42px 72px 42px 72px;
+  font-size: 3rem;
+  background-color: #b48a4e;
+  color: white;
+  text-decoration: none;
+  margin-top: 10rem;
+}
+
+/* Section 2 */
+
+.section-quicklinks {
+  /* Block-Elemente sind standardmäßig so breit wie ihr Parent.
+   Deshalb ist hier keine width-Angabe (wie z.B 'width: 100vw') nötig. */
+
+  background-color: rgb(0, 0, 0);
+  /* Hier benutzte ich Padding um mir ein extra '50vh' zu sparen. (Skaliert so auch besser) */
+  padding: 230px 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.quickLink {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 5rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #b48a4e;
+}
+
+.quickLink img {
+  width: 50rem;
+  height: auto;
+}
+
+/* Section 3 */
+
+.buy-ticket-section {
+  background-color: rgb(24, 24, 24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy-ticket-img-left {
+  height: 50rem;
+  width: auto;
+}
+
+.festival h2 {
+  margin-block-start: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.festival-info {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  padding: 8rem;
+  height: 50rem;
+  flex: 2;
+}
+
+.festival-info h2 {
+  margin-block-start: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 7rem;
+}
+
+.seperator {
+  background-color: white;
+  width: 1px;
+  height: 600px;
+  margin-right: 10px;
+}
+
+.buy-ticket-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 16px;
+  flex: 1;
+}
+
+.button2 {
+  font-size: 3rem;
+  background-color: #b48a4e;
+  color: white;
+  text-decoration: none;
+  padding: 42px 72px 42px 72px;
+}
+
+/* Section 4 */
+
+.listen-Playlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  color: #b48a4e;
+}
+
+.listen-Playlist h1 {
+  color: #b48a4e;
+  font-size: 5rem;
+}
+
+/* Section 5 */
+
+.video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.video img {
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Hier nochmal wegen der Breite Marco fragen */
+}
+
+/* Section 6 */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  padding: 80px 80px;
+  background-color: black;
+  align-items: flex-end;
+}
+
+.half-width {
+  width: auto;
+  flex: 1 1 380px;
+}
+
+.subText {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+footer {
+  display: flex;
+  background-color: #000000;
+  padding: 80px 80px;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.footer-social-media-icon {
+  width: 32px;
+}
+
+.footer-left {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-end;
+  padding-right: 16px;
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+input {
+  height: 41px;
+}
+input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  padding-left: 16px;
+}
+
+.button-footer {
+  width: 200px;
+  border-width: 0;
+}
+
+.footer-form {
+  display: flex;
+}
+

@@ -1,0 +1,3 @@
+! -> Langfristig "Fonts" immer downloaden anstatt per CDN oder weiteres einzubinden. (Damit google auch keine Daten sammelt)
+
+! - ATF (Above the Fold) - So wird der Teil der Webseite genannt, den man sofort (ohne zu scrollen) sieht.
