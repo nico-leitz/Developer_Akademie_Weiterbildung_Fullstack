@@ -25,24 +25,119 @@ body {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  position: relative;
 }
 
 .img {
   width: 200px;
   border-radius: 100px;
   filter: blur(0.7px) grayscale(80%);
+  transition: all 0.5s ease;
 }
 
 .img2 {
+  position: absolute;
+  animation: imgBullshit 40s ease-in-out 0s infinite;
   width: 300px;
   border-radius: 100px;
   filter: contrast(150%) hue-rotate(90deg);
-  animation: slideAndRotate 6s ease-in-out forwards;
 }
 
 #headline {
+  display: inline-block;
+  transition: all 0.5s ease;
+  z-index: 100;
 }
 
-@keyframes slideAndRotate {
-  from { transform: translateY(0) rotate(0deg); }
-  to   { transform: translateY(-300px) rotate(720deg); }
+.headline {
+  position: absolute;
+  animation: headlineBullshit 40s ease-in-out 0s infinite;
+}
+
+#audioBox {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  z-index: 100;
+}
+
+.audioPlay {
+  position: absolute;
+  animation: audioBullshit 40s ease-in-out 0s infinite;
+}
+
+@keyframes imgBullshit {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    filter: contrast(50%) hue-rotate(0deg);
+    width: 300px;
+  }
+  25% {
+    transform: translate(200px, -150px) rotate(360deg);
+    filter: contrast(150%) hue-rotate(45deg);
+    width: 900px;
+  }
+  50% {
+    transform: translate(-300px, -300px) rotate(720deg);
+    filter: contrast(200%) hue-rotate(90deg);
+    width: 1800px;
+  }
+  75% {
+    transform: translate(300px, 150px) rotate(1080deg);
+    filter: contrast(150%) hue-rotate(45deg);
+    width: 900px;
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(1440deg);
+    filter: contrast(50%) hue-rotate(0deg);
+    width: 300px;
+  }
+}
+
+@keyframes headlineBullshit {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    color: red;
+  }
+  25% {
+    transform: translate(200px, 100px) scale(1.5);
+    color: orange;
+  }
+  50% {
+    transform: translate(-300px, 300px) scale(1);
+    color: yellow;
+  }
+  75% {
+    transform: translate(400px, -200px) scale(1.5);
+    color: green;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    color: red;
+  }
+}
+
+@keyframes audioBullshit {
+  0% {
+    transform: translate(0px, 0px);
+    background-color: red;
+  }
+  25% {
+    transform: translate(-200px, -100px);
+    background-color: violet;
+  }
+  50% {
+    transform: translate(300px, -300px);
+    background-color: indigo;
+  }
+  75% {
+    transform: translate(-400px, 200px);
+    background-color: blue;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    background-color: red;
+  }
+}
