@@ -26,8 +26,11 @@
     }
   </style>
 
-  <body onload="blueBackground()">
-    <h2 id="website_title">Der Titel der Webseite</h2>
+  <body onload="scopeTest()">
+    <h1 onkeydown="console.log(1)" id="website_title">
+      Der Titel der Webseite>
+    </h1>
+    <!-- <h2 id="website_title">Der Titel der Webseite</h2>
 
     <div id="test_div"></div>
 
@@ -39,8 +42,12 @@
     <button onclick="toggleDNone()">bitte ausführen</button>
 
     <br />
-    <br />
+    <br /> -->
 
-    <script src="dom.js"></script>
+    <button onclick="init()">Start Code</button>
+
+    <p id="debugger_log"></p>
+
+    <script src="debugger.js"></script>
   </body>
 </html>
