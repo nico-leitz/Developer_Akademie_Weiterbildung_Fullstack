@@ -6,11 +6,34 @@ let singletestVar = fruits.push("Kiwi");
 fruits.pop();
 console.log(fruits);
 
+// First come first serve ist bei Arrays ein wichtiges konzept
+
 function initArrays() {
   myList[0] = "No Banana";
   console.log(myList[0]);
   console.log(fruits);
 }
+let allFruits = [];
+
+function initArrays2() {
+  let divElement = document.createElement("div");
+
+  for (let index = 0; index < fruits.length; index++) {
+    console.log(fruits[index]);
+    allFruits.push(fruits[index]);
+
+    let pTag = document.createElement("p");
+    pTag.textContent = fruits[index];
+    divElement.appendChild(pTag);
+    pTag.style.color = "Red";
+  }
+
+  document.body.appendChild(divElement);
+}
+
+initArrays2();
+console.log(allFruits);
+console.log(`Moin! ${allFruits}`);
 
 // let pTag = document.getElementById("debugger_log");
 // let pTag2 = document.getElementById("debugger_log2");
