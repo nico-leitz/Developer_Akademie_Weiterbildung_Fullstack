@@ -1,25 +1,25 @@
 let count = 0;
 
-// function init() {
-//   debuggerOutput("A");
-//   debuggerOutput("A");
-//   testOne();
-//   debuggerOutput("A");
-//   debuggerOutput("A");
-// }
+function init() {
+  debuggerOutput("A");
+  debuggerOutput("A");
+  testOne();
+  debuggerOutput("A");
+  debuggerOutput("A");
+}
 
-// function testOne() {
-//   debuggerOutput("B");
-//   debuggerOutput("B");
-//   testTwo();
-//   debuggerOutput("B");
-//   debuggerOutput("B");
-// }
-// function testTwo() {
-//   debuggerOutput("C");
-//   debuggerOutput("C");
-//   debuggerOutput("C");
-// }
+function testOne() {
+  debuggerOutput("B");
+  debuggerOutput("B");
+  testTwo();
+  debuggerOutput("B");
+  debuggerOutput("B");
+}
+function testTwo() {
+  debuggerOutput("C");
+  debuggerOutput("C");
+  debuggerOutput("C");
+}
 
 // function init() {
 //   testOne();
@@ -37,19 +37,19 @@ let count = 0;
 //   testOne();
 // }
 
-function init() {
-  testOne();
-  debuggerOutput("init");
-  testTwo();
-}
+// function init() {
+//   testOne();
+//   debuggerOutput("init");
+//   testTwo();
+// }
 
-function testOne() {
-  debuggerOutput("testOne");
-}
-function testTwo() {
-  debuggerOutput(text);
-  testOne();
-}
+// function testOne() {
+//   debuggerOutput("testOne");
+// }
+// function testTwo() {
+//   debuggerOutput(text);
+//   testOne();
+// }
 
 function debuggerOutput(text) {
   count++;
