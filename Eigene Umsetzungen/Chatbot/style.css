@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "Raleway";
+  src: url(../../JavaScript/assets/fonts/Raleway-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100dvh;
+  font-size: 18px;
+  font-family: "Raleway";
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.chatLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+  min-height: 100dvh;
+}
+
+.chatRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  gap: 8px;
+  min-height: 100dvh;
+  padding-top: 30px;
+}
+
+.chatRight p {
+  margin-top: 8px;
+}
