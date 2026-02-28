@@ -2,7 +2,8 @@ let nameRef = document.getElementById("nameInput");
 let messageRef = document.getElementById("messageInput");
 let sendBtn = document.getElementById("sendBtn");
 let outputDiv = document.getElementById("outputDiv");
-let errorDiv = document.getElementById("errorMessage");
+let errorMessageName = document.createElement("p");
+let errorMessageMessage = document.createElement("p");
 
 sendBtn.addEventListener("click", function () {
   let name = nameRef.value;
@@ -11,13 +12,22 @@ sendBtn.addEventListener("click", function () {
   let newPTag = document.createElement("p");
   outputDiv.appendChild(newPTag);
 
-  if (name === "Max") {
+  if (name.length >= 3 && message.length >= 5) {
     newPTag.innerHTML = `${name}: ${message}`;
-    newPTag.style.color = "red";
+  } else if (name.length <= 2) {
+    errorMessageName.innerHTML = `Name needs to be at least 3 letters long`;
+    errorMessageName.style.color = "red";
+    outputDiv.appendChild(errorMessageName);
+  } else if (message.length <= 4) {
+    errorMessageMessage.innerHTML = `Message needs to be at least 5 letters long`;
+    errorMessageMessage.style.color = "red";
+    outputDiv.appendChild(errorMessageMessage);
   } else {
-    newPTag.innerHTML = `${name}: ${message}`;
-    newPTag.style.color = "green";
+    errorMessageName.innerHTML = `Name needs to be at least 3 letters long`;
+    errorMessageName.style.color = "red";
+    outputDiv.appendChild(errorMessageName);
+    errorMessageMessage.innerHTML = `Message needs to be at least 5 letters long`;
+    errorMessageMessage.style.color = "red";
+    outputDiv.appendChild(errorMessageMessage);
   }
-
-  console.log(name, message);
 });
