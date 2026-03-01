@@ -12,6 +12,19 @@ function sendMessage() {
   let name = nameRef.value.trim();
   let message = messageRef.value.trim();
 
+  let randomBotAnswers = [
+    "Haha, that's funny!",
+    "Hmm, interesting point!",
+    "I see what you did there!",
+    "That's pretty clever!",
+    "Oh, nice one!",
+    "You really know how to make me laugh!",
+    "Well played!",
+    "That's a good one!",
+    "Haha, got me there!",
+    "Classic move!",
+  ];
+
   let isValidName = true;
   let isValidMessage = true;
 
@@ -35,6 +48,13 @@ function sendMessage() {
     let newPTag = document.createElement("p");
     newPTag.textContent = `${name}: ${message}`;
     outputDiv.appendChild(newPTag);
+
+    setTimeout(() => {
+      let botPTag = document.createElement("p");
+      botPTag.textContent =
+        randomBotAnswers[Math.floor(Math.random() * randomBotAnswers.length)];
+      outputDiv.appendChild(botPTag);
+    }, 3000);
   }
 }
 
