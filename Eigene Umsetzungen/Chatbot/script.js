@@ -2,8 +2,13 @@ let nameRef = document.getElementById("nameInput");
 let messageRef = document.getElementById("messageInput");
 let sendBtn = document.getElementById("sendBtn");
 let outputDiv = document.getElementById("outputDiv");
+let errorDiv = document.querySelector(".errorDiv");
+let lightDarkBtn = document.getElementById("lightDarkBtn");
 
-sendBtn.addEventListener("click", function () {
+sendBtn.addEventListener("click", sendMessage);
+lightDarkBtn.addEventListener("click", toggleLightDark);
+
+function sendMessage() {
   let name = nameRef.value.trim();
   let message = messageRef.value.trim();
 
@@ -30,8 +35,9 @@ sendBtn.addEventListener("click", function () {
     let newPTag = document.createElement("p");
     newPTag.textContent = `${name}: ${message}`;
     outputDiv.appendChild(newPTag);
-
-    nameRef.value = "";
-    messageRef.value = "";
   }
-});
+}
+
+function toggleLightDark() {
+  document.body.classList.toggle("lightDarkMode");
+}

@@ -1,16 +1,27 @@
+@font-face {
+  font-family: "Raleway";
+  src: url(../assets/fonts/Raleway-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
 body {
   min-height: 100dvh;
   font-size: 18px;
-  font-family: "Raleway";
+  background-color: #f4f4f9;
+  color: #333;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .flexbox {
@@ -26,21 +37,120 @@ body {
   justify-content: center;
   align-items: center;
   flex: 1;
-  gap: 8px;
   min-height: 100dvh;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatLeftInside {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 64px;
+  border-radius: 15px;
+  border: 1px solid rgb(13, 203, 13);
+  box-shadow: 0px 8px 15px rgba(14, 216, 14, 0.1);
+  transition:
+    box-shadow 0.3s ease-in-out,
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.chatLeftInside:hover {
+  box-shadow: 0px 12px 20px rgba(14, 216, 14, 0.2);
+}
+
+.chatLeftInside label {
+  margin-block: 8px;
+}
+
+.chatLeftInside input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.chatLeftInside input:focus {
+  box-shadow: 0px 2px 10px rgba(14, 216, 14, 0.3);
+  border-color: #0ecf0e;
+  outline: none;
+}
+
+.chatLeftInside #sendBtn {
+  padding: 10px 16px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #0ecf0e;
+  background-color: #0ecf0e;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.chatLeftInside #sendBtn:hover {
+  background-color: #33c725;
+  transform: translateY(-2px);
+}
+
+.chatLeftInside #lightDarkBtn {
+  padding: 10px 16px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #980ed8;
+  background-color: #980ed8;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.chatLeftInside #lightDarkBtn:hover {
+  background-color: #a00be5;
+  transform: translateY(-2px);
 }
 
 .chatRight {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
+  overflow-y: hidden;
   flex: 1;
-  gap: 8px;
+  gap: 12px;
   min-height: 100dvh;
-  padding-top: 30px;
+}
+
+.chatRightInside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  gap: 12px;
+  max-height: 90dvh;
+  overflow: hidden;
+  padding: 32px;
 }
 
 .chatRight p {
-  margin-top: 8px;
+  margin-top: 12px;
+  font-size: 18px;
+  color: #333;
+}
+
+.outputDiv {
+}
+
+.errorDiv {
+  display: none;
+}
+
+.lightDarkMode {
+  background-color: #333;
+  color: #fff;
 }

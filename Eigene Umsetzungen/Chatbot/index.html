@@ -6,18 +6,24 @@
     <link rel="stylesheet" href="style.css" />
     <title>Chatbot</title>
   </head>
-  <body>
+  <body class="lightDarkMode">
     <div class="flexbox">
       <div class="chatLeft">
-        <label for="nameInput">Name: </label>
-        <input id="nameInput" type="text" />
-        <label for="messageInput">Nachricht: </label>
-        <input id="messageInput" type="text" />
-        <button id="sendBtn">Senden</button>
+        <div class="chatLeftInside">
+          <label for="nameInput">Name: </label>
+          <input id="nameInput" type="text" />
+          <label for="messageInput">Nachricht: </label>
+          <input id="messageInput" type="text" />
+          <button id="sendBtn">Senden</button>
+          <button id="lightDarkBtn" class="theme-toggle-btn">Light/Dark</button>
+        </div>
       </div>
 
       <div class="chatRight">
-        <div id="outputDiv"></div>
+        <div class="chatRightInside">
+          <div id="outputDiv"></div>
+          <div class="errorDiv"></div>
+        </div>
       </div>
     </div>
 
