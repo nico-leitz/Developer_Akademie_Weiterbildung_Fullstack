@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tab-index</title>
+  </head>
+  <body>
+    <h1 id="headline" tabindex="-1">Tabindex Demo</h1>
+
+    <h2>🟢 Fokussierbare Elemente (natürlicher Tabindex)</h2>
+
+    <a href="#" class="box">Link mit href</a>
+    <button onclick="setFocusOntop()" class="box">Button</button>
+    <input type="text" class="box" name="input" placeholder="Input-Feld" />
+
+    <h2>⚫ Nicht fokussierbare Elemente (ohne Tabindex)</h2>
+
+    <div class="box">Eein div -> nicht fokussierbar</div>
+    <span class="box">Ein span -> nicht fokussierbar</span>
+    <a class="box">Ein a-Tag ohne href -> nicht fokussiertbar</a>
+
+    <script>
+      function setFocusOntop() {
+        const elementRef = document.getElementById("headline");
+        elementRef.focus();
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+7. Tastatur & Fokus:
+- Mit TAB alle Elemente erreichbar?
+- Fokus sichtbar?
+- Enter & Space funktionieren?
+- `tabindex` verwenden, um die Tab-Reihenfolge zu steuern:
+- `tabindex="1"`: Definiert die Reihenfolge.
+- `tabindex="-1"`: Deaktiviert die Tab-Navigation für ein Element.
+- Keine willkürlichen hohen Werte verwenden.
+
+  -> Tabindex 1 nur im außerstem Notfall
+  -> Am besten die Finger davon lassen, weil nicht immer WCAG konform
+  -> Tabindex 0 kann an den richtigen Stellen nachgerüset werden
+  -> Tabindex -1 wird benötigt um es mit JavaScript fokussierbar zu machen
+
+  Wann verwenden?
+  Wenn man in einem circle "herumtabbed" um einen Fokus zu setzen (irgendwie sowas kp)
+-->
