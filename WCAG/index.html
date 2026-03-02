@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>WCAG</title>
+  </head>
+  <body>
+    <main>
+      <h1>Unser Dialog Test</h1>
+
+      <button
+        aria-haspopup="dialog"
+        aria-controls="myDialog"
+        onclick="openDialog()"
+      >
+        Dialog öffnen
+      </button>
+      <!--Dieser dialog-Tag ersparrt uns später noch (sehr viel) JavaScript-->
+      <!--dialog ist ein abgeschlossener Bereich, deswegen empfielt es sich hier einen <header> zu implementieren-->
+      <dialog id="myDialog" aria-labelledby="dialogTitle" class="d_none">
+        <header>
+          <h2 id="dialogTitle">Mein Dialog</h2>
+        </header>
+
+        <section>
+          <p id="dialogDescr">Hier sieht du die Infomationen die ich dir....</p>
+        </section>
+
+        <footer>
+          <button aria-label="Dialog schließen" onclick="closeDialog()">
+            Schließen
+          </button>
+        </footer>
+      </dialog>
+    </main>
+    <script>
+      const dialogRef = document.getElementById("myDialog");
+      function openDialog() {
+        dialogRef.showModal();
+        dialogRef.classList.toggle("d_none");
+        dialogRef.classList.add("opened");
+      }
+      function closeDialog() {
+        dialogRef.close();
+        dialogRef.classList.toggle("d_none");
+        dialogRef.classList.remove("opened");
+      }
+    </script>
+  </body>
+</html>
+
+<!--
+==========================================================
+Semantisches HTML & WCAG Leitfaden
+Optisch aufbereitete PDF-Version mit Titelseite
+==========================================================
+
+Grundprinzip:
+1️⃣ Erst native HTML-Elemente verwenden
+2️⃣ Tastatur- und Screenreader-Kompatibilität prüfen
+3️⃣ ARIA nur verwenden, wenn keine native Lösung existiert
+
+1. Semantisches HTML:
+❌ Falsch: <div class="button">Klick mich</div>
+✅ Richtig: <button>Klick mich</button>
+Wichtige Struktur-Elemente: <header>, <main>, <nav>, <section>, <article>, <footer>
+
+2. Interaktive Elemente:
+- Klickbar → <button>
+- Navigation → <a href="">
+- Formular → <form>
+- Liste → <ul> / <ol>
+- Dialog → <dialog>
+
+3. Formulare:
+<label for="email">E-Mail</label>
+<input id="email" type="email">
+Immer Labels nutzen für Barrierefreiheit.
+
+4. Tastatur & Fokus:
+- Mit TAB alle Elemente erreichbar?
+- Fokus sichtbar?
+- Enter & Space funktionieren?
+
+5. ARIA nur bei Bedarf:
+❌ Falsch: <div role="button">Klick</div>
+✅ Richtig: <button>Klick</button>
+
+6. Dialog:
+Verwendung: Bestätigungen, Login, Formular-Popups
+Methoden:
+dialog.showModal();
+dialog.close();
+Vorteile:
+- ESC schließt automatisch
+- Fokus bleibt im Dialog
+- Hintergrund wird blockiert
+- Barrierefreiheit verbessert
+
+Advanced: WCAG Level AA Details:
+- Kontrast: Text ≥ 4.5:1 zu Hintergrund
+- Tastaturzugang: alle Funktionen über TAB/Enter/Space
+- Formularhinweise: label oder aria-label
+- Fokus-Indikatoren sichtbar
+- Screenreader-Text: aria-live bei dynamischen Inhalten
+- Skip Links: Navigation überspringen
+- Semantische Struktur: h1–h6 logisch aufbauen
+
+Goldene Regel:
+- Erst Semantik
+- Dann Funktion
+- Dann ARIA, wenn nötig
+
+7. Tastatur & Fokus:
+- Mit TAB alle Elemente erreichbar?
+- Fokus sichtbar?
+- Enter & Space funktionieren?
+- `tabindex` verwenden, um die Tab-Reihenfolge zu steuern:
+  - `tabindex="1"`: Definiert die Reihenfolge.
+  - `tabindex="-1"`: Deaktiviert die Tab-Navigation für ein Element.
+  - Keine willkürlichen hohen Werte verwenden.
+
+  -> Tabindex 1 nur im außerstem Notfall
+  -> Am besten die Finger davon lassen, weil nicht immer WCAG konform
+  -> Tabindex 0 kann an den richtigen Stellen nachgerüset werden
+
+
+==========================================================
+Ende des Leitfadens
+==========================================================
+-->
