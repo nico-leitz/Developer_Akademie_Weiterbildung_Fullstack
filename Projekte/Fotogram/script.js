@@ -44,7 +44,7 @@ btnCloseModal.addEventListener("click", closeModal);
 btnOpenModal.addEventListener("click", openModal);
 
 function openModal() {
-  modal.openModal();
+  modal.showModal();
   modal.classList.remove("d_none");
 }
 
