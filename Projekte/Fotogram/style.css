@@ -7,6 +7,8 @@
   --header-footer-padding: 32px;
   --base-img-width-nm: 150px;
   --base-img-height-nm: 150px;
+  --base-img-width-wm: 560px;
+  --base-img-height-wm: 375px;
 }
 
 * {
@@ -82,6 +84,71 @@ main {
   align-items: center;
   background-color: var(--background-color-main);
   width: var(--content-limitation);
+}
+
+dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  background-color: var(--background-color-main);
+  width: var(--content-limitation);
+  border-radius: 50px;
+  margin: 0 auto;
+  width: 600px;
+
+  /* copied from:
+   "https://stackoverflow.com/questions/1205457/how-to-design-a-css-for-a-centered-floating-confirm-dialog"
+   Marco oder andere noch nach besseren Lösungen fragen */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--main-font-color);
+  padding: 16px;
+  width: 100%;
+}
+
+#btnCloseModal {
+  background-color: var(--background-color-main);
+  color: var(--main-font-color);
+  font-size: 18px;
+  padding: 8px;
+  border: none;
+}
+
+.modalImageContainer {
+  width: var(--base-img-width-wm);
+  height: var(--base-img-height-wm);
+}
+
+#modalImage {
+  width: var(--base-img-width-wm);
+  height: var(--base-img-height-wm);
+}
+
+.modalControl {
+  background-color: var(--background-color-main);
+  color: var(--main-font-color);
+  font-size: 22px;
+  padding-bottom: 32px;
 }
 
 footer {

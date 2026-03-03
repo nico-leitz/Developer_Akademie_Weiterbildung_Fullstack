@@ -40,8 +40,8 @@ let imageTitle2 = [
   "A tree with snow",
 ];
 
-btnCloseModal.addEventListener("click", closeModal);
 btnOpenModal.addEventListener("click", openModal);
+btnCloseModal.addEventListener("click", closeModal);
 
 function openModal() {
   modal.showModal();
