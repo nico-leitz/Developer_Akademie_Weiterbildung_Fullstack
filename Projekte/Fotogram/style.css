@@ -4,7 +4,6 @@
   --background-color-header-footer: #092029;
   --background-color-main: #06171e;
   --content-limitation: 1920px;
-  --header-footer-padding: 32px;
   --base-img-width-nm: 150px;
   --base-img-height-nm: 150px;
   --base-img-width-wm: 560px;
@@ -70,6 +69,8 @@ body {
   width: var(--content-limitation);
   padding: var(--header-footer-padding);
   max-width: var(--content-limitation);
+  padding-block: 20px;
+  padding-inline: 140px;
 }
 
 .header img {
@@ -130,8 +131,12 @@ dialog {
   background-color: var(--background-color-main);
   color: var(--main-font-color);
   font-size: 18px;
-  padding: 8px;
   border: none;
+}
+
+#iconCloseModal {
+  width: 32px;
+  height: 32px;
 }
 
 .modalImageContainer {
@@ -156,6 +161,14 @@ dialog {
   width: 100%;
 }
 
+#imgArrowLeft {
+  width: 60px;
+  height: 60px;
+}
+#imgArrowRight {
+  width: 60px;
+  height: 60px;
+}
 footer {
   display: flex;
   flex-direction: column;
@@ -164,7 +177,8 @@ footer {
   gap: 16px;
   background-color: var(--background-color-header-footer);
   padding: var(--header-footer-padding);
-  width: var(--content-limitation);
+  max-width: var(--content-limitation);
+  height: 128px;
 }
 
 footer p {
