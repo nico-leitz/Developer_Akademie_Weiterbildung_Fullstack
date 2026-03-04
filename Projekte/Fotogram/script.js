@@ -70,12 +70,32 @@ arrowRight.addEventListener("click", function () {
   showCurrentModalContent();
 });
 
+arrowRight.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    currentIndex++;
+    if (currentIndex >= imageArray.length) {
+      currentIndex = 0;
+    }
+    showCurrentModalContent();
+  }
+});
+
 arrowLeft.addEventListener("click", function () {
   currentIndex--;
   if (currentIndex < 0) {
     currentIndex = imageArray.length - 1;
   }
   showCurrentModalContent();
+});
+
+arrowLeft.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = imageArray.length - 1;
+    }
+    showCurrentModalContent();
+  }
 });
 
 function renderImages() {
@@ -85,7 +105,7 @@ function renderImages() {
   for (let index = 0; index < imageArray.length; index++) {
     imgContainer.innerHTML += `
     <div class="generatedImageContainer">
-      <img src="./assets/img/img${imageArray[index]}.svg"
+      <img src="./assets/img/img${imageArray[index]}.png" alt="${imageAlt[index]}"
            class="generatedImage"
            onclick="renderDialog(${index})">
     </div>`;

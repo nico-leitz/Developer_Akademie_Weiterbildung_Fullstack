@@ -125,23 +125,9 @@ dialog {
   background-color: var(--background-color-main);
   border-radius: 50px;
   border: none;
-  margin: 0 auto;
+  margin: auto;
   padding-block: 56px;
   padding-inline: 64px;
-
-  /* copied from:
-   "https://stackoverflow.com/questions/1205457/how-to-design-a-css-for-a-centered-floating-confirm-dialog"
-   Marco oder andere noch nach besseren Lösungen fragen */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: 50%;
-  bottom: 50%;
-
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
 }
 
 #dialog::backdrop {
@@ -238,7 +224,7 @@ footer {
 }
 
 footer p {
-  color: grey;
+  color: #adabab;
 }
 
 .d_none {
