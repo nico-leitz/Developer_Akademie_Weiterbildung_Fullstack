@@ -1,19 +1,14 @@
-// Idee für mich: Images dynamisch per index auslesen lassen. z.B: ./assets/img/img[0]
+const modal = document.getElementById("dialog");
+const headlineH1 = document.getElementById("dialogTitle");
+const imgContainer = document.querySelector(".imgContainer");
+const btnCloseModal = document.getElementById("btnCloseModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalImage = document.getElementById("modalImage");
+const imageNumber = document.getElementById("imageNumber");
+const arrowLeft = document.getElementById("imgArrowLeft");
+const arrowRight = document.getElementById("imgArrowRight");
 
-let modal = document.getElementById("dialog");
-let headlineH1 = document.getElementById("dialogTitle");
-let imgContainer = document.querySelector(".imgContainer");
-let generatedImage = document.querySelector(".generatedImage");
-let btnCloseModal = document.getElementById("btnCloseModal");
-let btnOpenModal = document.getElementById("btnOpenModal");
-let renderModalImg = document.getElementById("modalImg");
-let modalTitle = document.getElementById("modalTitle");
-let modalImage = document.getElementById("modalImage");
-let imageNumber = document.getElementById("imageNumber");
-let arrowLeft = document.getElementById("imgArrowLeft");
-let arrowRight = document.getElementById("imgArrowRight");
-
-let imageArray = [
+const imageArray = [
   "1",
   "2",
   "3",
@@ -28,7 +23,7 @@ let imageArray = [
   "12",
 ];
 
-let imageTitle = [
+const imageTitle = [
   "A picture of a glacier",
   "Night City",
   "Cloudy Sky",
@@ -43,7 +38,7 @@ let imageTitle = [
   "A tree with snow",
 ];
 
-let imageAlt = [
+const imageAlt = [
   "A picture of a glacier",
   "Night City",
   "Cloudy Sky",
@@ -62,48 +57,44 @@ let currentIndex = 0;
 
 btnCloseModal.addEventListener("click", closeModal);
 
+arrowRight.addEventListener("click", function () {
+  currentIndex++;
+  if (currentIndex >= imageArray.length) currentIndex = 0;
+  showCurrentImage();
+});
+
+arrowLeft.addEventListener("click", function () {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = imageArray.length - 1;
+  }
+  showCurrentImage();
+});
+
 function renderImages() {
-  headlineH1.innerHTML = `Your Personal photo album`;
+  headlineH1.innerHTML = "Your Personal photo album";
+  imgContainer.innerHTML = "";
+
   for (let index = 0; index < imageArray.length; index++) {
     imgContainer.innerHTML += `
-    <img src="./assets/img/img${imageArray[index]}.svg" class="generatedImage" onclick="renderDialog(${index})"/>`;
+      <img src="./assets/img/img${imageArray[index]}.svg"
+           class="generatedImage"
+           onclick="renderDialog(${index})">
+    `;
   }
 }
 
 function renderDialog(index) {
+  currentIndex = index;
   openModal();
-  getIndexNumber(index);
-  nextImage(index);
-  previousImage(index);
+  showCurrentImage();
 }
 
-function nextImage() {
-  arrowRight.addEventListener("click", function () {
-    currentIndex++;
-
-    if (currentIndex >= imageArray.length) {
-      currentIndex = 0;
-    }
-    getIndexNumber(currentIndex);
-  });
-}
-
-function previousImage() {
-  arrowLeft.addEventListener("click", function () {
-    currentIndex--;
-
-    if (currentIndex < 0) {
-      currentIndex = imageArray.length - 1;
-    }
-    getIndexNumber(currentIndex);
-  });
-}
-
-function getIndexNumber(index) {
-  modalTitle.innerHTML = imageTitle[index];
-  modalImage.src = `./assets/img/img${imageArray[index]}.svg`;
-  modalImage.alt = imageAlt[index];
-  imageNumber.innerHTML = `${index + 1}/12`;
+function showCurrentImage() {
+  modalTitle.innerHTML = imageTitle[currentIndex];
+  modalImage.src = `./assets/img/img${imageArray[currentIndex]}.svg`;
+  modalImage.alt = imageAlt[currentIndex];
+  imageNumber.innerHTML = `${currentIndex + 1}/${imageArray.length}`;
 }
 
 function openModal() {
