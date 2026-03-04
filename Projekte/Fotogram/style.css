@@ -10,6 +10,11 @@
   --base-img-height-wm: 375px;
 }
 
+@font-face {
+  font-family: "figtree";
+  src: url(./assets/fonts/Figtree-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +28,12 @@ html {
 body {
   font-size: var(--main-font-size);
   color: var(--main-font-color);
+  font-family: "figtree";
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 800;
 }
 
 .sideWrapper {
@@ -81,10 +92,28 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: var(--background-color-main);
   width: var(--content-limitation);
+}
+
+.mainContentNoModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1170px;
+  height: 495px;
+  gap: 80px;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 dialog {
