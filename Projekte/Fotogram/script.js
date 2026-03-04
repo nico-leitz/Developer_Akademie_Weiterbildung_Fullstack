@@ -84,10 +84,11 @@ function renderImages() {
 
   for (let index = 0; index < imageArray.length; index++) {
     imgContainer.innerHTML += `
+    <div class="generatedImageContainer">
       <img src="./assets/img/img${imageArray[index]}.svg"
            class="generatedImage"
            onclick="renderDialog(${index})">
-    `;
+    </div>`;
   }
 }
 

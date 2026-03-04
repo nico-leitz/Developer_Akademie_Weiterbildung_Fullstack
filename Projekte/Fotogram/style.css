@@ -124,6 +124,7 @@ dialog {
   gap: 32px;
   background-color: var(--background-color-main);
   border-radius: 50px;
+  border: none;
   margin: 0 auto;
   padding-block: 56px;
   padding-inline: 64px;
@@ -169,12 +170,26 @@ dialog {
 }
 
 .modalImageContainer {
+  overflow: hidden;
 }
 
 #modalImage {
   width: var(--base-img-width-wm);
   height: var(--base-img-height-wm);
   object-fit: cover;
+  transform: scale(1.05);
+}
+
+.generatedImageContainer {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.generatedImage:hover {
+  transform: scale(1.2);
+  transition: all 1s ease;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .modalControl {
@@ -192,10 +207,24 @@ dialog {
   width: 60px;
   height: 60px;
 }
+
 #imgArrowRight {
   width: 60px;
   height: 60px;
 }
+
+#imgArrowLeft:hover {
+  cursor: pointer;
+  transition: all ease;
+  filter: opacity(0.75);
+}
+
+#imgArrowRight:hover {
+  cursor: pointer;
+  transition: all ease;
+  filter: opacity(0.75);
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -216,19 +245,7 @@ footer p {
   display: none;
 }
 
-@media (width < 678px) {
-  h1 {
-    text-align: center;
-    font-size: 48px;
-  }
-
-  .header {
-    padding-inline: 0;
-    justify-content: center;
-  }
-}
-
-@media (width < 640px) {
+@media (width < 740px) {
   .mainContentWrapper {
     justify-content: flex-start;
     align-items: flex-start;
@@ -238,6 +255,18 @@ footer p {
   #modalImage {
     width: 300px;
     height: 375px;
+  }
+}
+
+@media (width < 678px) {
+  h1 {
+    text-align: center;
+    font-size: 48px;
+  }
+
+  .header {
+    padding-inline: 0;
+    justify-content: center;
   }
 }
 
@@ -257,7 +286,11 @@ footer p {
   }
 
   #modalTitle {
-    font-size: 22px;
-    padding-bottom: 8px;
+    font-size: 20px;
+    padding-bottom: 7px;
+  }
+
+  dialog {
+    padding-inline: 33px;
   }
 }
