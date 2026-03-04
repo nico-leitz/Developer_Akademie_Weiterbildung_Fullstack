@@ -56,11 +56,18 @@ const imageAlt = [
 let currentIndex = 0;
 
 btnCloseModal.addEventListener("click", closeModal);
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
 
 arrowRight.addEventListener("click", function () {
   currentIndex++;
-  if (currentIndex >= imageArray.length) currentIndex = 0;
-  showCurrentImage();
+  if (currentIndex >= imageArray.length) {
+    currentIndex = 0;
+  }
+  showCurrentModalContent();
 });
 
 arrowLeft.addEventListener("click", function () {
@@ -68,7 +75,7 @@ arrowLeft.addEventListener("click", function () {
   if (currentIndex < 0) {
     currentIndex = imageArray.length - 1;
   }
-  showCurrentImage();
+  showCurrentModalContent();
 });
 
 function renderImages() {
@@ -87,10 +94,10 @@ function renderImages() {
 function renderDialog(index) {
   currentIndex = index;
   openModal();
-  showCurrentImage();
+  showCurrentModalContent();
 }
 
-function showCurrentImage() {
+function showCurrentModalContent() {
   modalTitle.innerHTML = imageTitle[currentIndex];
   modalImage.src = `./assets/img/img${imageArray[currentIndex]}.svg`;
   modalImage.alt = imageAlt[currentIndex];
