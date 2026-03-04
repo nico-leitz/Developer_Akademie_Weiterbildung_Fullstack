@@ -98,6 +98,34 @@ arrowLeft.addEventListener("keydown", function (event) {
   }
 });
 
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = imageArray.length - 1;
+    }
+    showCurrentModalContent();
+    arrowLeft.focus();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowRight") {
+    currentIndex++;
+    if (currentIndex >= imageArray.length) {
+      currentIndex = 0;
+    }
+    showCurrentModalContent();
+    arrowRight.focus();
+  }
+});
+
+function imgToModal(event, index) {
+  if (event.key === "Enter") {
+    renderDialog(index);
+  }
+}
+
 function renderImages() {
   headlineH1.innerHTML = "Your Personal photo album";
   imgContainer.innerHTML = "";
@@ -107,7 +135,9 @@ function renderImages() {
     <div class="generatedImageContainer">
       <img src="./assets/img/img${imageArray[index]}.png" alt="${imageAlt[index]}"
            class="generatedImage"
-           onclick="renderDialog(${index})">
+           onclick="renderDialog(${index})"
+           onkeydown="imgToModal(event, ${index})"
+           tabindex="0">
     </div>`;
   }
 }
