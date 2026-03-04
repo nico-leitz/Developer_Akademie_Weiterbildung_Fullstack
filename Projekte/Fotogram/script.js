@@ -11,6 +11,7 @@ let modalTitle = document.getElementById("modalTitle");
 let modalImage = document.getElementById("modalImage");
 let imageNumber = document.getElementById("imageNumber");
 let arrowLeft = document.getElementById("imgArrowLeft");
+let arrowRight = document.getElementById("imgArrowRight");
 
 let imageArray = [
   "1",
@@ -57,9 +58,9 @@ let imageAlt = [
   "A tree with snow",
 ];
 
-// btnOpenModal.addEventListener("click", openModal);
+let currentIndex = 0;
+
 btnCloseModal.addEventListener("click", closeModal);
-arrowLeft.addEventListener("click", nextImage);
 
 function renderImages() {
   headlineH1.innerHTML = `Your Personal photo album`;
@@ -71,14 +72,39 @@ function renderImages() {
 
 function renderDialog(index) {
   openModal();
+  getIndexNumber(index);
+  nextImage(index);
+  previousImage(index);
+}
 
+function nextImage() {
+  arrowRight.addEventListener("click", function () {
+    currentIndex++;
+
+    if (currentIndex >= imageArray.length) {
+      currentIndex = 0;
+    }
+    getIndexNumber(currentIndex);
+  });
+}
+
+function previousImage() {
+  arrowLeft.addEventListener("click", function () {
+    currentIndex--;
+
+    if (currentIndex < 0) {
+      currentIndex = imageArray.length - 1;
+    }
+    getIndexNumber(currentIndex);
+  });
+}
+
+function getIndexNumber(index) {
   modalTitle.innerHTML = imageTitle[index];
   modalImage.src = `./assets/img/img${imageArray[index]}.svg`;
   modalImage.alt = imageAlt[index];
-  imageNumber.innerHTML = `${index}/12`;
+  imageNumber.innerHTML = `${index + 1}/12`;
 }
-
-function nextImage() {}
 
 function openModal() {
   modal.showModal();
