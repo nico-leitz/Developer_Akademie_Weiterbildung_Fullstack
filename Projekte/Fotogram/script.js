@@ -120,6 +120,12 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+
 function imgToModal(event, index) {
   if (event.key === "Enter") {
     renderDialog(index);
@@ -131,15 +137,17 @@ function renderImages() {
   imgContainer.innerHTML = "";
 
   for (let index = 0; index < imageArray.length; index++) {
-    imgContainer.innerHTML += `
-    <div class="generatedImageContainer">
+    imgContainer.innerHTML += getHTMLForImage(index);
+  }
+}
+function getHTMLForImage(index) {
+  return ` <div class="generatedImageContainer">
       <img src="./assets/img/img${imageArray[index]}.png" alt="${imageAlt[index]}"
            class="generatedImage"
            onclick="renderDialog(${index})"
            onkeydown="imgToModal(event, ${index})"
            tabindex="0">
     </div>`;
-  }
 }
 
 function renderDialog(index) {
