@@ -132,6 +132,7 @@ dialog {
 
 #dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
 }
 
 .modalHeader {
@@ -180,13 +181,13 @@ dialog {
 
 .modalControl {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 32px;
   background-color: var(--background-color-main);
   color: var(--main-font-color);
   font-size: 22px;
-  width: 100%;
+  width: 280px;
 }
 
 #imgArrowLeft {
@@ -278,5 +279,9 @@ footer p {
 
   dialog {
     padding-inline: 33px;
+  }
+
+  .modalControl {
+    width: 140px;
   }
 }
