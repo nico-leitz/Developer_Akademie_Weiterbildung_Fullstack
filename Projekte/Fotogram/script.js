@@ -24,7 +24,7 @@ const imageArray = [
 ];
 
 const imageTitle = [
-  "A picture of a glacier",
+  "A glacier",
   "Night City",
   "Cloudy Sky",
   "Birb png!",
@@ -33,8 +33,8 @@ const imageTitle = [
   "A swimming duck",
   "man on boat!",
   "small birb",
-  "cheeetaahh, but its a snow lion?",
-  "mountains with snow",
+  "Snow lion?",
+  "snowy mountains",
   "A tree with snow",
 ];
 
@@ -142,18 +142,6 @@ function renderImages() {
   for (let index = 0; index < imageArray.length; index++) {
     imgContainer.innerHTML += getHTMLForImage(index);
   }
-}
-
-function getHTMLForImage(index) {
-  return `
-    <div class="generatedImageContainer">
-      <img src="./assets/img/img${imageArray[index]}.png"
-           alt="${imageAlt[index]}"
-           class="generatedImage"
-           onclick="renderDialog(${index})"
-           onkeydown="imgToModal(event, ${index})"
-           tabindex="0">
-    </div>`;
 }
 
 function renderDialog(index) {

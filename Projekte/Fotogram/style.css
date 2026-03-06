@@ -31,6 +31,10 @@ body {
   font-family: "figtree";
 }
 
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
 h1 {
   font-size: 56px;
   font-weight: 800;
@@ -113,7 +117,9 @@ main {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 dialog {
