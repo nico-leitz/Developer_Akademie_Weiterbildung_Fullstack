@@ -55,76 +55,79 @@ const imageAlt = [
 
 let currentIndex = 0;
 
-btnCloseModal.addEventListener("click", closeModal);
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-});
+function initAllEventListeners() {
+  btnCloseModal.addEventListener("click", closeModal);
 
-arrowRight.addEventListener("click", function () {
-  currentIndex++;
-  if (currentIndex >= imageArray.length) {
-    currentIndex = 0;
-  }
-  showCurrentModalContent();
-});
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
 
-arrowRight.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
+  arrowRight.addEventListener("click", function () {
     currentIndex++;
     if (currentIndex >= imageArray.length) {
       currentIndex = 0;
     }
     showCurrentModalContent();
-  }
-});
+  });
 
-arrowLeft.addEventListener("click", function () {
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = imageArray.length - 1;
-  }
-  showCurrentModalContent();
-});
+  arrowRight.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      currentIndex++;
+      if (currentIndex >= imageArray.length) {
+        currentIndex = 0;
+      }
+      showCurrentModalContent();
+    }
+  });
 
-arrowLeft.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
+  arrowLeft.addEventListener("click", function () {
     currentIndex--;
     if (currentIndex < 0) {
       currentIndex = imageArray.length - 1;
     }
     showCurrentModalContent();
-  }
-});
+  });
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowLeft") {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = imageArray.length - 1;
+  arrowLeft.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = imageArray.length - 1;
+      }
+      showCurrentModalContent();
     }
-    showCurrentModalContent();
-    arrowLeft.focus();
-  }
-});
+  });
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowRight") {
-    currentIndex++;
-    if (currentIndex >= imageArray.length) {
-      currentIndex = 0;
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowLeft") {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = imageArray.length - 1;
+      }
+      showCurrentModalContent();
+      arrowLeft.focus();
     }
-    showCurrentModalContent();
-    arrowRight.focus();
-  }
-});
+  });
 
-modal.addEventListener("click", function (event) {
-  if (event.target === modal) {
-    closeModal();
-  }
-});
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowRight") {
+      currentIndex++;
+      if (currentIndex >= imageArray.length) {
+        currentIndex = 0;
+      }
+      showCurrentModalContent();
+      arrowRight.focus();
+    }
+  });
+
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+}
 
 function imgToModal(event, index) {
   if (event.key === "Enter") {
@@ -140,9 +143,12 @@ function renderImages() {
     imgContainer.innerHTML += getHTMLForImage(index);
   }
 }
+
 function getHTMLForImage(index) {
-  return ` <div class="generatedImageContainer">
-      <img src="./assets/img/img${imageArray[index]}.png" alt="${imageAlt[index]}"
+  return `
+    <div class="generatedImageContainer">
+      <img src="./assets/img/img${imageArray[index]}.png"
+           alt="${imageAlt[index]}"
            class="generatedImage"
            onclick="renderDialog(${index})"
            onkeydown="imgToModal(event, ${index})"
@@ -172,3 +178,5 @@ function closeModal() {
   modal.close();
   modal.classList.add("d_none");
 }
+
+initAllEventListeners();
