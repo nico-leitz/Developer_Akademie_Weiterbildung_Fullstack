@@ -1,4 +1,5 @@
 const modal = document.getElementById("dialog");
+const modalContent = document.querySelector(".modalContent");
 const headlineH1 = document.getElementById("dialogTitle");
 const imgContainer = document.querySelector(".imgContainer");
 const btnCloseModal = document.getElementById("btnCloseModal");
@@ -24,7 +25,7 @@ const imageArray = [
 ];
 
 const imageTitle = [
-  "A glacier",
+  "A picture of a glacier",
   "Night City",
   "Cloudy Sky",
   "Birb png!",
@@ -33,8 +34,8 @@ const imageTitle = [
   "A swimming duck",
   "man on boat!",
   "small birb",
-  "Snow lion?",
-  "snowy mountains",
+  "cheeetaahh, but its a snow lion?",
+  "mountains with snow",
   "A tree with snow",
 ];
 
@@ -122,10 +123,12 @@ function initAllEventListeners() {
     }
   });
 
-  modal.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      closeModal();
-    }
+  modal.addEventListener("click", function () {
+    closeModal();
+  });
+
+  modalContent.addEventListener("click", function (event) {
+    event.stopPropagation();
   });
 }
 

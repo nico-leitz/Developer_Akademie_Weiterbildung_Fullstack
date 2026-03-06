@@ -19,6 +19,7 @@
           />
         </header>
       </div>
+
       <div class="mainContentWrapper">
         <main>
           <div class="mainContentNoModal">
@@ -27,33 +28,37 @@
           </div>
 
           <dialog id="dialog" aria-labelledby="dialogTitle" class="d_none">
-            <div class="modalHeader">
-              <h2 id="modalTitle"></h2>
-              <button id="btnCloseModal">
+            <div class="modalContent">
+              <div class="modalHeader">
+                <h2 id="modalTitle"></h2>
+                <button id="btnCloseModal">
+                  <img
+                    id="iconCloseModal"
+                    src="./assets/img/button_Modal_X.svg"
+                    alt="x button to close the modal"
+                  />
+                </button>
+              </div>
+
+              <div class="modalImageContainer">
+                <img id="modalImage" src="" alt="" />
+              </div>
+
+              <div class="modalControl">
                 <img
-                  id="iconCloseModal"
-                  src="./assets/img/button_Modal_X.svg"
-                  alt="x button to close the modal"
+                  id="imgArrowLeft"
+                  src="./assets/img/arrowBtnLeft.svg"
+                  alt=""
+                  tabindex="0"
                 />
-              </button>
-            </div>
-            <div class="modalImageContainer">
-              <img id="modalImage" src="" alt="" />
-            </div>
-            <div class="modalControl">
-              <img
-                id="imgArrowLeft"
-                src="./assets/img/arrowBtnLeft.svg"
-                alt=""
-                tabindex="0"
-              />
-              <p id="imageNumber"></p>
-              <img
-                id="imgArrowRight"
-                src="./assets/img/arrowBtnRight.svg"
-                alt=""
-                tabindex="0"
-              />
+                <p id="imageNumber"></p>
+                <img
+                  id="imgArrowRight"
+                  src="./assets/img/arrowBtnRight.svg"
+                  alt=""
+                  tabindex="0"
+                />
+              </div>
             </div>
           </dialog>
         </main>
@@ -69,6 +74,7 @@
         </footer>
       </div>
     </div>
+
     <script src="script.js"></script>
     <script src="template.js"></script>
   </body>
