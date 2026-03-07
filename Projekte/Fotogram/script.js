@@ -8,6 +8,7 @@ const modalImage = document.getElementById("modalImage");
 const imageNumber = document.getElementById("imageNumber");
 const arrowLeft = document.getElementById("imgArrowLeft");
 const arrowRight = document.getElementById("imgArrowRight");
+const likeBtn = document.getElementById("like");
 
 const imageArray = [
   "1",
@@ -58,6 +59,10 @@ let currentIndex = 0;
 
 function initAllEventListeners() {
   btnCloseModal.addEventListener("click", closeModal);
+
+  likeBtn.addEventListener("click", function () {
+    likeBtn.classList.toggle("likeActive");
+  });
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
