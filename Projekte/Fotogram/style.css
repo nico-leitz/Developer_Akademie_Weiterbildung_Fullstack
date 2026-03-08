@@ -312,9 +312,6 @@ footer p {
 
 .likeActive {
   display: flex;
-  width: 45px;
-  height: 45px;
   cursor: pointer;
   background-color: red;
-  border-radius: 50px;
 }

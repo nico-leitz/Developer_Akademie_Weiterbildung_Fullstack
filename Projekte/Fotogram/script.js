@@ -25,6 +25,21 @@ const imageArray = [
   "12",
 ];
 
+const imageArray2 = [
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+];
+
 const imageTitle = [
   "A picture of a glacier",
   "Night City",
@@ -56,6 +71,15 @@ const imageAlt = [
 ];
 
 let currentIndex = 0;
+let hasLike = false;
+
+function checkLikeStatus() {
+  for (let i = 0; i <= imageArray.length; i++) {
+    if (likeBtn.classList.contains("likeActive")) {
+      likeBtn.classList.add("likeActive");
+    }
+  }
+}
 
 function initAllEventListeners() {
   btnCloseModal.addEventListener("click", closeModal);
