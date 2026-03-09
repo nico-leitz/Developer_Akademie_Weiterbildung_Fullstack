@@ -9,9 +9,12 @@
 
     <title>Notizblock</title>
   </head>
-  <body onload="renderNotes()">
+  <body>
     <h1>Notizblock</h1>
-    <button onclick="renderNotes()">Render Notes:</button>
+    <input id="userInput" type="text" />
+    <button id="inputBtn" onclick="addNote()">Add Notes</button>
+    <br /><br />
+    <button onclick="renderNotes()">Render Note:</button>
     <div id="content"></div>
     <script src="script.js"></script>
   </body>
