@@ -2,7 +2,10 @@
 
 // notizen anzeigen lassen
 
-let notes = ["banane", "rasen mähen"];
+let notesTitel = ["Ba", "Aufgabe", "Yippieehh", "Mega!"];
+let notes = ["banane", "rasen mähen", "Lel", "Supaa!"];
+
+let trashNotes = [];
 
 // wann werden die notes angezeigt
 
@@ -12,13 +15,29 @@ function renderNotes() {
   contentRef.innerHTML = "";
 
   for (let indexNote = 0; indexNote < notes.length; indexNote++) {
-    const note = " " + notes[indexNote];
-    contentRef.innerHTML += getNoteTemplate(note);
+    contentRef.innerHTML += getNoteTemplate(indexNote);
   }
 }
 
-function getNoteTemplate(note) {
-  return `<p>+ ${note}</p>`;
+function renderTrashNotes() {
+  let trashContentRef = document.getElementById("trash_content");
+  trashContentRef.innerHTML = "";
+
+  for (
+    let indexTrashNote = 0;
+    indexTrashNote < trashNotes.length;
+    indexTrashNote++
+  ) {
+    trashContentRef.innerHTML += getTrashNoteTemplate(indexTrashNote);
+  }
+}
+
+function getNoteTemplate(indexNote) {
+  return `<p>+ ${notes[indexNote]}</p> <button onclick="noteToTrash(${indexNote})">X</button>`;
+}
+
+function getTrashNoteTemplate(indexTrashNote) {
+  return `<p>+ ${trashNotes[indexTrashNote]}</p> <button onclick="deleteNoteForever(${indexTrashNote})">Delete Note (Forever)</button>`;
 }
 
 // notizen hinzufügen
@@ -32,6 +51,19 @@ function addNote() {
   renderNotes();
 }
 
+// notizen löschen
+function noteToTrash(indexNote) {
+  let trashNote = notes.splice(indexNote, 1);
+  trashNotes.push(trashNote);
+  renderNotes();
+  renderTrashNotes();
+}
+
+function deleteNoteForever(indexTrashNote) {
+  trashNotes.splice(indexTrashNote, 1);
+  renderTrashNotes();
+}
+
 // eingabe vom user defninieren
 
 // eingabe auslesen
@@ -39,7 +71,5 @@ function addNote() {
 // eingabe speichern
 
 // eingabe anzeigen lassen
-
-// notizen löschen
 
 // notizen archivieren
