@@ -47,6 +47,7 @@ function addNote() {
   let userInputRef = document.getElementById("userInput");
   let userInput = userInputRef.value;
   notes.push(userInput);
+  notesTitles.push(userInput);
   userInputRef.value = "";
 
   renderNotes();
