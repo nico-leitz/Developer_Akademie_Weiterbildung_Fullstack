@@ -1,17 +1,11 @@
-// global speichern
-
-// notizen anzeigen lassen
-
 let notesTitles = ["Ba", "Aufgabe", "Yippieehh", "Mega!"];
 let notes = ["banane", "rasen mähen", "Lel", "Supaa!"];
 
 let trashNotes = [];
 let trashNotesTitle = [];
 
-// wann werden die notes angezeigt
-
+// Notizen anzeigen
 function renderNotes() {
-  // -> ich muss definieren wo sie anzuzeigen sind
   let contentRef = document.getElementById("content");
   contentRef.innerHTML = "";
 
@@ -20,6 +14,7 @@ function renderNotes() {
   }
 }
 
+// Papierkorb anzeigen
 function renderTrashNotes() {
   let trashContentRef = document.getElementById("trash_content");
   trashContentRef.innerHTML = "";
@@ -33,47 +28,96 @@ function renderTrashNotes() {
   }
 }
 
+// HTML für normale Notizen
 function getNoteTemplate(indexNote) {
-  return `<p>- Title: ${notesTitles[indexNote]} -> ${notes[indexNote]}</p> <button onclick="noteToTrash(${indexNote})">X</button>`;
+  return `
+    <p>- Title: ${notesTitles[indexNote]} -> ${notes[indexNote]}</p>
+    <button onclick="noteToTrash(${indexNote})">X</button>
+  `;
 }
 
+// HTML für Papierkorb-Notizen
 function getTrashNoteTemplate(indexTrashNote) {
-  return `<p>+ Title: ${trashNotesTitle[indexTrashNote]} -> ${trashNotes[indexTrashNote]}</p> <button onclick="deleteNoteForever(${indexTrashNote})">Delete Note (Forever)</button>`;
+  return `
+    <p>+ Title: ${trashNotesTitle[indexTrashNote]} -> ${trashNotes[indexTrashNote]}</p>
+    <button onclick="deleteNoteForever(${indexTrashNote})">Delete Note (Forever)</button>
+  `;
 }
 
-// notizen hinzufügen
-
+// Notiz hinzufügen
 function addNote() {
   let userInputRef = document.getElementById("userInput");
   let userInput = userInputRef.value;
+
+  if (userInput.trim() === "") return;
+
   notes.push(userInput);
   notesTitles.push(userInput);
   userInputRef.value = "";
 
+  setToLocalStorage();
   renderNotes();
 }
 
-// notizen löschen
+// Notiz in Papierkorb verschieben
 function noteToTrash(indexNote) {
   let trashNote = notes.splice(indexNote, 1);
   trashNotes.push(trashNote[0]);
+
   let trashNoteTitle = notesTitles.splice(indexNote, 1);
   trashNotesTitle.push(trashNoteTitle[0]);
+
+  setToLocalStorage();
   renderNotes();
   renderTrashNotes();
 }
 
+// Notiz endgültig löschen
 function deleteNoteForever(indexTrashNote) {
   trashNotes.splice(indexTrashNote, 1);
+  trashNotesTitle.splice(indexTrashNote, 1);
+
+  setToLocalStorage();
   renderTrashNotes();
 }
 
-// eingabe vom user defninieren
+// Alles im LocalStorage speichern
+function setToLocalStorage() {
+  localStorage.setItem("notes", JSON.stringify(notes));
+  localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
+  localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
+  localStorage.setItem("trashNotesTitle", JSON.stringify(trashNotesTitle));
+}
 
-// eingabe auslesen
+// Alles aus dem LocalStorage laden
+function getFromLocalStorage() {
+  let storedNotes = localStorage.getItem("notes");
+  let storedTitles = localStorage.getItem("notesTitles");
+  let storedTrashNotes = localStorage.getItem("trashNotes");
+  let storedTrashTitles = localStorage.getItem("trashNotesTitle");
 
-// eingabe speichern
+  if (storedNotes) {
+    notes = JSON.parse(storedNotes);
+  }
 
-// eingabe anzeigen lassen
+  if (storedTitles) {
+    notesTitles = JSON.parse(storedTitles);
+  }
 
-// notizen archivieren
+  if (storedTrashNotes) {
+    trashNotes = JSON.parse(storedTrashNotes);
+  }
+
+  if (storedTrashTitles) {
+    trashNotesTitle = JSON.parse(storedTrashTitles);
+  }
+}
+
+// Initialisieren beim Laden der Seite
+function init() {
+  getFromLocalStorage();
+  renderNotes();
+  renderTrashNotes();
+}
+
+window.onload = init;
