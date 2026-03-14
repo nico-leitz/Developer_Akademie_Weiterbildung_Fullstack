@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>QuizApp</title>
+  </head>
+  <body onload="init()">
+    <header>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">QuizApp</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="card quiz-card">
+          <div class="imageWrapper">
+            <img
+              id="questionImage"
+              src="./assets/img/hololoop.gif"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mt-2">Frage</h5>
+            <p class="card-text"></p>
+            <div class="card mb-2 mt-4">
+              <div class="card-body">This is some text within a card body.</div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-body">This is some text within a card body.</div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-body">This is some text within a card body.</div>
+            </div>
+            <div class="card mb-4">
+              <div class="card-body">This is some text within a card body.</div>
+            </div>
+            <div class="question-footer">
+              <div class="questionNumber">
+                <b id="questionCounter">1</b> von
+                <b id="lastQuestionNumber">5</b> Fragen
+              </div>
+              <div class="checkBtn">
+                <button id="checkBtn" class="btn btn-primary">
+                  Nächste Frage
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

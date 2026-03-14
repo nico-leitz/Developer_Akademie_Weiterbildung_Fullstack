@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+}
+
+.container {
+  background-color: #3c444d !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  flex: 1;
+}
+
+.quiz-card {
+  width: 30rem;
+}
+
+.imageWrapper {
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#questionImage {
+  height: 200px;
+  object-fit: cover;
+}
+
+.question-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 8px;
+  padding-top: 16px;
+}
+
+#checkBtn {
+  padding-inline: 16px;
+}
