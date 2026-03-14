@@ -1,4 +1,10 @@
-const questionCounter = document.getElementById("");
+const questionCounter = document.getElementById("questionCounter");
+const lastQuestionNumber = document.getElementById("lastQuestionNumber");
+const questionText = document.getElementById("questionText");
+const answer1 = document.getElementById("answer_1");
+const answer2 = document.getElementById("answer_2");
+const answer3 = document.getElementById("answer_3");
+const answer4 = document.getElementById("answer_4");
 
 // Zugriff auf das Array:
 // Fragen Objekt aufrufen: questions[0]
@@ -45,6 +51,46 @@ let questions = [
     answer_4: "Apple",
     right_answer: 2,
   },
+  {
+    question: "Welches HTML-Tag wird für Bilder verwendet?",
+    answer_1: "<image>",
+    answer_2: "<img>",
+    answer_3: "<picture>",
+    answer_4: "<src>",
+    right_answer: 2,
+  },
+  {
+    question: "Welche CSS-Eigenschaft ändert die Textfarbe?",
+    answer_1: "font-color",
+    answer_2: "text-color",
+    answer_3: "color",
+    answer_4: "font-style",
+    right_answer: 3,
+  },
+  {
+    question: "Welches Symbol wird für Kommentare in JavaScript verwendet?",
+    answer_1: "//",
+    answer_2: "<!-- -->",
+    answer_3: "#",
+    answer_4: "**",
+    right_answer: 1,
+  },
 ];
 
-function init() {}
+let currentQuestion = 0;
+
+function init() {
+  lastQuestionNumber.innerHTML = questions.length;
+}
+
+function showCurrentQuestion() {
+  let question = questions[currentQuestion];
+
+  questionText.innerHTML = question.question;
+  answer1.innerHTML = question.answer_1;
+  answer2.innerHTML = question.answer_2;
+  answer3.innerHTML = question.answer_3;
+  answer4.innerHTML = question.answer_4;
+}
+
+showCurrentQuestion();
