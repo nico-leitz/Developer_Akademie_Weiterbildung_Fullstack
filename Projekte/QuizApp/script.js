@@ -6,10 +6,6 @@ const answer2 = document.getElementById("answer_2");
 const answer3 = document.getElementById("answer_3");
 const answer4 = document.getElementById("answer_4");
 
-// Zugriff auf das Array:
-// Fragen Objekt aufrufen: questions[0]
-// Objekt-Eigenschaften aufrufen: questions[0]['right_answer']
-
 let questions = [
   {
     question: "Wer hat HTML erfunden?",
@@ -80,17 +76,20 @@ let questions = [
 let currentQuestion = 0;
 
 function init() {
-  lastQuestionNumber.innerHTML = questions.length;
+  lastQuestionNumber.textContent = questions.length;
+  showCurrentQuestion();
 }
 
 function showCurrentQuestion() {
   let question = questions[currentQuestion];
 
-  questionText.innerHTML = question.question;
-  answer1.innerHTML = question.answer_1;
-  answer2.innerHTML = question.answer_2;
-  answer3.innerHTML = question.answer_3;
-  answer4.innerHTML = question.answer_4;
+  questionText.textContent = question.question;
+  answer1.textContent = question.answer_1;
+  answer2.textContent = question.answer_2;
+  answer3.textContent = question.answer_3;
+  answer4.textContent = question.answer_4;
 }
 
-showCurrentQuestion();
+function selectAnswer(selection) {
+  console.log("Selected answer is:", selection);
+}

@@ -31,6 +31,7 @@ main {
 
 .quiz-card {
   width: 30rem;
+  overflow: hidden;
 }
 
 #answer_1,
@@ -38,6 +39,10 @@ main {
 #answer_3,
 #answer_4 {
   cursor: pointer;
+}
+
+.quiz-answer-card:hover {
+  background-color: #3c444d;
 }
 
 .imageWrapper {
@@ -51,6 +56,13 @@ main {
 #questionImage {
   height: 200px;
   object-fit: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+#questionImage:hover {
+  height: 200px;
+  object-fit: cover;
+  transform: scale(1.05);
 }
 
 .question-footer {
@@ -64,4 +76,13 @@ main {
 
 #checkBtn {
   padding-inline: 16px;
+}
+
+.correctAnswer {
+  background-color: rgba(58, 161, 40, 0.559);
+}
+
+.wrongAnswer {
+  background-color: rgba(161, 40, 40, 0.559);
+  border-radius: 10px;
 }

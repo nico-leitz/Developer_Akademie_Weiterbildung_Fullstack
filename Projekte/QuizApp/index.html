@@ -9,7 +9,6 @@
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
     <title>QuizApp</title>
   </head>
   <body onload="init()">
@@ -20,6 +19,7 @@
         </div>
       </nav>
     </header>
+
     <main>
       <div class="container">
         <div class="card quiz-card">
@@ -31,29 +31,46 @@
               alt="..."
             />
           </div>
+
           <div class="card-body">
             <h5 class="card-title mt-2" id="questionText">Frage</h5>
-            <p class="card-text"></p>
-            <div class="card mb-2 mt-4">
+
+            <div
+              class="card quiz-answer-card mb-2 mt-4"
+              onclick="selectAnswer('answer_1')"
+            >
               <div class="card-body" id="answer_1">
                 This is some text within a card body.
               </div>
             </div>
-            <div class="card mb-2">
+
+            <div
+              class="card quiz-answer-card mb-2"
+              onclick="selectAnswer('answer_2')"
+            >
               <div class="card-body" id="answer_2">
                 This is some text within a card body.
               </div>
             </div>
-            <div class="card mb-2">
+
+            <div
+              class="card quiz-answer-card mb-2"
+              onclick="selectAnswer('answer_3')"
+            >
               <div class="card-body" id="answer_3">
                 This is some text within a card body.
               </div>
             </div>
-            <div class="card mb-4">
+
+            <div
+              class="card quiz-answer-card mb-4"
+              onclick="selectAnswer('answer_4')"
+            >
               <div class="card-body" id="answer_4">
                 This is some text within a card body.
               </div>
             </div>
+
             <div class="question-footer">
               <div class="questionNumber">
                 <b id="questionCounter">1</b> von
@@ -69,7 +86,7 @@
         </div>
       </div>
     </main>
-    <footer></footer>
-    <script src="script.js"></script>
+
+    <script src="./script.js"></script>
   </body>
 </html>
